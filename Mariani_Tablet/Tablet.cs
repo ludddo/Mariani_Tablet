@@ -69,5 +69,16 @@ namespace Mariani_Tablet
         {
             return this.durata;
         }
+
+        public double[] Punteggio()
+        {
+            double[] punteggio = new double[3];
+
+            punteggio[0] = velocita * 10;
+            punteggio[1] = dimensione;
+            punteggio[2] = durata / 1000;
+
+            return punteggio;
+        }
     }
 }
