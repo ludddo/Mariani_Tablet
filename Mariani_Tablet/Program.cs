@@ -28,6 +28,8 @@ namespace Mariani_Tablet
 
                 Console.WriteLine("Inserire la durata del " + i + " tablet");
                 durata[i] = double.Parse(Console.ReadLine());
+
+                Console.Clear();
             }
             
             Tablet tablet1 = new Tablet(marca[0], velocita[0], dimensione[0], durata[0]);
@@ -44,12 +46,29 @@ namespace Mariani_Tablet
             punteggioMedio[3] = (tablet4.Punteggio()[0] + tablet4.Punteggio()[1] + tablet4.Punteggio()[2]) / 3;
             punteggioMedio[4] = (tablet5.Punteggio()[0] + tablet5.Punteggio()[1] + tablet5.Punteggio()[2]) / 3;
 
-            Array.Sort(punteggioMedio);
-            
+            int tabletMigliore = 0, tabletPeggiore = 0;
+
             for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine(punteggioMedio[i]);
+                for (int j = 0; j < 5; j++)
+                {
+                    if (punteggioMedio[i] > punteggioMedio[j])
+                    {
+                        tabletMigliore = i;
+                    }
+                    if (punteggioMedio[i] < punteggioMedio[j])
+                    {
+                        tabletPeggiore = j;
+                    }
+                }
             }
+
+            Console.WriteLine(tabletMigliore);
+            Console.WriteLine(tabletPeggiore);
+
+            Console.WriteLine("Il tablet peggiore è:\nMarca: " + "");
+            
+
         }
     }
 }
